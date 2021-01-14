@@ -87,7 +87,7 @@ To terminate the connection from the remote server, you can issue the `exit`
 command.
 
 It is a good idea to create a separate directory for the course work on the
-server and give it a meaningful name (e.g., `com-410`). You should probably
+server and give it a meaningful name (e.g., `com-121`). You should probably
 keep different labs (experiments) in separate directories, too. Name them
 appropriately. Use the commands and programs such as `cd`, `mkdir`, `mv`,
 `touch`, `nano`, `cat`, `man`, and `ls`. 
