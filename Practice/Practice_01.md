@@ -1,7 +1,15 @@
 Safety Management, Practice #1
 ==============================
 
-In this course, we study the influence of the C and C++ programming languages on the modern world. The reason is that C and C++ were and still are the irreplaceable technologies that are used to build fundamental software such as Operating System kernels, hardware drivers, and high-performance software such as browsers that we use every day. In the beginning, we study the fundamental structured and object-oriented programming elements of the languages. Next, we explore how those languages' design decisions influence the world from the point of safety and what extra cost people have to bear for some of the unique features.
+In this course, we study the influence of the C and C++ programming languages on
+the modern world. The reason is that C and C++ were and still are the
+irreplaceable technologies that are used to build fundamental software such as
+Operating System kernels, hardware drivers, and high-performance software such
+as browsers that we use every day. In the beginning, we study the fundamental
+structured and object-oriented programming elements of the languages. Next, we
+explore how those languages' design decisions influence the world from the point
+of safety and what extra cost people have to bear for some of the unique
+features.
 
 ## Developer Tools
 
