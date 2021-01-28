@@ -365,7 +365,9 @@ to the AUCA Google Drive folder (create one, name it appropriately) and share
 them with the instructor (you can find his E-mail in Syllabus). You must not
 remove the videos until the end of the course. If it is not possible to download
 or watch the video, you will get zero for the work. Recording URLs (and nothing
-else) must be stored in `rec.txt` files for every problem. 
+else) must be stored in `rec.txt` files for every problem. [Here](https://drive.google.com/file/d/1Q_jFnOCQbJGYS1Ky8rfQ-F389PVioOYV)
+you can find the video that shows how to record, upload, share, and get the URL
+to write to `rec.txt`.
 
 Here is the directory structure with the names of the files that you must use.
 
