@@ -336,12 +336,12 @@ do we need a build system to compile large Java apps?
 
 ## GitHub Checkpoint #1
 
-For the first GitHub Checkpoint, you need to prepare, commit, and push Problems
-1 and 2 for Lab 1 to your private course repository on GitHub. You have to
-get the repository from the instructor if you don't have one. Submit the last
-commit ID without any extra characters here on Canvas, pointing to the snapshot
-where all the problems were ready. You may make new commits and resubmit before
-the deadline multiple times.
+For the first GitHub Checkpoint, you need to prepare, commit, and push Problem
+1 for Lab 1 to your private course repository on GitHub. You have to get the
+repository from the instructor if you don't have one. Submit the last commit ID
+without any extra characters here on Canvas, pointing to the snapshot where all
+the code is ready. You may make new commits and resubmit before the deadline
+multiple times.
 
 You must create a `Readme.md` file in the root of your course folder. The Readme
 file should contain the following text for now.
@@ -354,13 +354,12 @@ Here you can find all the works of FULLNAME for the COM-121 course.
 
 Replace `FULLNAME` with your real name.
 
-You must also record your work with the server for all the lab problems. You can
-use Zoom to record the sessions to the disk. The recordings must be concise and
+You must also record your work with the server for the first lab problem. You can
+use Zoom to record the sessions to the disk. The recording must be concise and
 must have your commentaries explaining the most important steps of the process.
 Do the operations that the instructor was doing. You may pretend that you are an
-instructor now, and you are trying to create a series of educational videos. For
-every Problem, a separate recording must be completed. You have to upload them
-to the AUCA Google Drive folder (create one, name it appropriately) and share
+instructor now, and you are trying to create a series of educational videos. You
+have to upload them to the AUCA Google Drive folder (create one, name it appropriately) and share
 them with the instructor (you can find his E-mail in Syllabus). You must not
 remove the videos until the end of the course. If it is not possible to download
 or watch the video, you will get zero for the work. Recording URLs (and nothing
@@ -379,12 +378,6 @@ Here is the directory structure with the names of the files that you must use.
 │   │   ├── 01.s
 │   │   ├── 01.O3.s
 │   │   └── rec.txt
-│   └── problem-02
-│       ├── 02.c
-│       ├── Makefile
-│       ├── rec.txt
-│       ├── utilities.c
-│       └── utilities.h
 └── Readme.md
 ```
 
@@ -393,7 +386,6 @@ Here you can find the commands that will be used to compile your code.
 | Problem       | Compilation Command |
 | :------------ | :------------------ |
 | p01: 01.c     | gcc -o 01 01.c      |
-| p02: 02.c,... | make clean && make  |
 
 Files `01.i`, `01.O3.s`, and `01.s` from `problem-01` may be checked manually.
 Ensure that you have them in the repository. `01.i` should include some
