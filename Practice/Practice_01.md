@@ -357,8 +357,7 @@ Replace `FULLNAME` with your real name.
 You must also record your work with the server for all the lab problems. You can
 use Zoom to record the sessions to the disk. The recordings must be concise and
 must have your commentaries explaining the most important steps of the process.
-For Problem 2, you must also show how you debug the program in GDB. Do the
-operations that the instructor was doing. You may pretend that you are an
+Do the operations that the instructor was doing. You may pretend that you are an
 instructor now, and you are trying to create a series of educational videos. For
 every Problem, a separate recording must be completed. You have to upload them
 to the AUCA Google Drive folder (create one, name it appropriately) and share
