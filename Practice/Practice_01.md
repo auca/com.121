@@ -196,3 +196,245 @@ compiled Java bytecode?
 With all that, consider the following hypothetical situation. What if all
 high-performance programs in the world written in C would be rewritten into
 Java. Theorize, would all those programs consume much more or less electricity?
+
+## Problem #2: "A Message in a Rectangle"
+
+Create a program that prints the "hello, world" greeting surrounded by the
+asterisk symbols. To print a line of asterisks, write a separate function
+called `void print_decor_line(void)`. Note the naming compared to Java.
+
+Perform several experiments. Every time you have to recompile the program, try
+running it if the compilation was successful.
+
+### Experiments
+
+1. Try putting the function before and after `main(...)`. You will find that the
+   order of function definition in C matters, compared to Java.
+2. Try putting the function into a separate header file, `utilities.h`. Include
+   the file before main once. Add library includes into `utilities.h` if
+   necessary.
+3. Include the `utilities.h` file before main twice. You will see that without
+   the *Include Guard* in the header files, you will not compile the program.
+   Fix it by adding the [Include Guard](https://en.wikipedia.org/wiki/Include_guard)
+   into the header file.
+
+For large source files, the compilation can take a lot of time. For example, the
+Linux kernel takes on average one hour to be recompiled from scratch on a modern
+personal computer. In large projects, to allow developers to recompile only those
+modified files, programs in C are split into multiple `.c` files, preprocessed
+and compiled separately, and then combined with a linker program. Even for your
+current application that consists of only one file, the linker is called to
+combine your object file with the system libraries' machine code and the C
+runtime (that prepares your program's environment to run).
+
+Even though it is not necessary for such a small program to do it, let us split
+our program into two `.c` files, where the main file references entities from
+another through the `.h` header. Create a `utilities.c` file, and move the
+`print_decor_line` function to it. Leave the functions declaration in the header
+file without the body. Do not forget to include the header file in the newly
+created `.c` file. Compile the files separately. Finally, link (combine) them
+together. Use the `-c` flag to tell the compiler to generate an object file
+without performing any linking for the first two steps.
+
+```bash
+gcc -c -o 02.o 02.c # Step 1: compiling into an object file
+gcc -c -o utilities.o utilities.c # Step 2: compiling into an object file
+gcc -o 02 02.o utilities.o # Step 3: linking object files, system libraries, and the C runtime to build a final executable
+./02
+**************
+|hello, world|
+**************
+```
+
+Try to change the function in the `utilities.c` file to generate. Figure out
+what steps outlined in the comments above (`Step 1:...`, `Step 2:...`, `Step 3...`)
+do you only have to repeat to rebuild your program?
+
+```bash
+# TODO: figure out which steps above are only required to be repeated to recompile the program
+./02
+--------------
+|hello, world|
+--------------
+```
+
+It is great that we can only recompile parts that were changed, but what if we
+don't want to track manually which files have changed since the last full
+rebuild? What if we don't want to run the compiler and linker manually multiple
+times? We can delegate this task to a build system. A build system is a program
+that tracks modification dates of the files and runs the commands to rebuild the
+files (artifacts), such as object files and executables. Build systems usually
+require a configuration file, where you specify the build rules for all the
+artifacts of your system. There are many build systems. The most popular
+software products for the C and C++ programming languages are Make and CMake.
+We will use Make on this course.
+
+Create a file named `Makefile` with the following content
+
+```make
+CC=gcc
+CFLAGS=-O3
+LDLIBS=
+
+02: 02.o utilities.o
+
+02.o: 02.c
+
+utilities.o: utilities.c
+
+.PHONY: clean
+clean:
+    rm -rf 02.o utilities.o 02
+```
+
+Ensure that you have a `<TAB>` character befor `rm`.
+
+The `CC` variable allows you to specify a C compiler that you want to use. You
+can try replacing `gcc` with `clang`. Clang is another popular C compiler that
+we have installed on our server.
+
+The `CFLAGS` variable allows you to specify compiler flags. We have provided the
+flag to turn optimizations on as an example. You can add more compiler flags here
+by separating them with a whitespace character.
+
+In some of our programs, we will have to tell the compiler to use additional
+system libraries that are not linked by default. For example, to use the `Math`
+library on our OS in C, we have to add a `-lm` flag to the `LDLIBS` library.
+
+Next, we have several targets, such as `02`, `02.o`, `utilities.o`, and `clean`.
+For many targets, we have prerequisites specified after the colon. Prerequisites
+tell Make to track the file's modification date with the specified name with the
+target's modification date and rerun the receipt if the dates are considerably
+different. The targets `02`, `02.o`, and `utilities.o` have implied receipts
+(you don't see them). Based on the prerequisites' extension, Make will figure
+out how to properly start the compiler to build the implied receipts' target.
+The `clean` rule has a receipt specified on the next line after the `<TAB>`
+character. The `rm -rf 02.o utilities.o 02` instruction is executed by Make in
+the command interpreter. The command interpreter runs the `rm` program to remove
+all the generated files. `clean` is a utility target useful to clean up the
+directory from all the generated files.
+
+You can now rebuild the program by only compiling the modified files with only
+one command by using Make.
+
+```bash
+make
+```
+
+You can also remove all the generated artifacts with just the following
+
+```bash
+make clean
+```
+
+Compile the project with Make. Note how many times the compiler front-end was
+called. Try modifying the `print_decor_line` back to print stars. Recompile the
+program. How many times was the compiler called this time?
+
+Recall what steps do you need to do to compile a Java program. How do you think,
+do we need a build system to compile large Java apps?
+
+## GitHub Checkpoint #1
+
+For the first GitHub Checkpoint, you need to prepare, commit, and push Problems
+1 and 2 for Lab 1 to your private course repository on GitHub. You have to
+get the repository from the instructor if you don't have one. Submit the last
+commit ID without any extra characters here on Canvas, pointing to the snapshot
+where all the problems were ready. You may make new commits and resubmit before
+the deadline multiple times.
+
+You must create a `Readme.md` file in the root of your course folder. The Readme
+file should contain the following text for now.
+
+```
+# COM-121 Private Course Directory
+
+Here you can find all the works of FULLNAME for the COM-121 course.
+```
+
+Replace `FULLNAME` with your real name.
+
+You must also record your work with the server for all the lab problems. You can
+use Zoom to record the sessions to the disk. The recordings must be concise and
+must have your commentaries explaining the most important steps of the process.
+For Problem 2, you must also show how you debug the program in GDB. Do the
+operations that the instructor was doing. You may pretend that you are an
+instructor now, and you are trying to create a series of educational videos. For
+every Problem, a separate recording must be completed. You have to upload them
+to the AUCA Google Drive folder (create one, name it appropriately) and share
+them with the instructor (you can find his E-mail in Syllabus). You must not
+remove the videos until the end of the course. If it is not possible to download
+or watch the video, you will get zero for the work. Recording URLs (and nothing
+else) must be stored in `rec.txt` files for every problem. 
+
+Here is the directory structure with the names of the files that you must use.
+
+```
+<Your private GitHub repository>
+├── lab-01
+│   ├── problem-01
+│   │   ├── 01.c
+│   │   ├── 01.i
+│   │   ├── 01.s
+│   │   ├── 01.O3.s
+│   │   └── rec.txt
+│   └── problem-02
+│       ├── 02.c
+│       ├── Makefile
+│       ├── rec.txt
+│       ├── utilities.c
+│       └── utilities.h
+└── Readme.md
+```
+
+Here you can find the commands that will be used to compile your code.
+
+| Problem       | Compilation Command |
+| :------------ | :------------------ |
+| p01: 01.c     | gcc -o 01 01.c      |
+| p02: 02.c,... | make clean && make  |
+
+Files `01.i`, `01.O3.s`, and `01.s` from `problem-01` may be checked manually.
+Ensure that you have them in the repository. `01.i` should include some
+preprocessing output generated from `01.c`. `*.s` files must include x86-64
+assembly generated with and without optimizations.
+
+Ensure not to submit any binary files (object files and executables). Your grade
+will be lowered for that. You will get zero for a late submission. You will get
+zero if the auto-grading script cannot parse your commit, clone your repository,
+check out the commit, find your source files under the specific names the
+instructor was using during the class, build the sources, run your programs. You
+will also get zero if your programs' output format is not the same as that
+outlined in the samples.
+
+### Documentation
+
+    man make
+    man gcc
+    man as
+    man gdb
+    man objdump
+
+### Links
+
+#### C
+
+* [Beej's Guide to C Programming](https://beej.us/guide/bgc)
+
+#### x86 ISA
+
+* [Intel® 64 and IA-32 Architectures Software Developer Manuals](https://software.intel.com/en-us/articles/intel-sdm)
+* [X86 Opcode Reference](http://ref.x86asm.net/index.html)
+* [X86 Instruction Reference](http://www.felixcloutier.com/x86)
+
+#### Tools
+
+* [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
+* [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
+* [Pro Git](https://git-scm.com/book/en/v2)
+
+### Books
+
+#### C
+
+* C Programming: A Modern Approach, 2nd Edition by K. N. King
