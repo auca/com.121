@@ -334,7 +334,74 @@ program. How many times was the compiler called this time?
 Recall what steps do you need to do to compile a Java program. How do you think,
 do we need a build system to compile large Java apps?
 
-## GitHub Checkpoint #1
+## Problem #3: "What is Your Name?"
+
+Write a program that reads a user name from the console, then forms and prints a
+greeting message for the user. Use the `gets` C function to read the first name
+of the user. Create a local array of 512 bytes in size to store the full name.
+Compile directly without Make, but use additional compiler flags
+`-g -fno-stack-protector -z execstack`. Ignore complaints from the compiler,
+start the application, and try to type your name. Ensure the program works.
+
+```bash
+gcc -g -fno-stack-protector -z execstack -o 03 03.c
+./03
+What is your full name?
+Dmitrii Toksaitov
+Hello, Dmitrii Toksaitov!
+```
+
+Try to redirect a specially crafted file located `/srv/input.txt` into your
+program. The `<` redirection symbol will tell your command interpreter and OS to
+make your application believe that input comes from the user, even though it
+arrives from the file on a disk.
+
+```bash
+./03 < /srv/input.txt
+```
+
+What has happened? Try to explain it.
+
+Build a similar Java program on the server. Use `Scanner` to read input.
+
+```bash
+javac Greeter.java
+java Greeter
+What is your full name?
+Dmitrii Toksaitov
+Hello, Dmitrii Toksaitov!
+```
+
+Use the same input that broke the C program.
+
+```bash
+java Greeter < /srv/input.txt
+```
+
+Do you have the same result here? Try to explain why is the Java implementation
+of the same program runs differently for the same input.
+
+Let's go back to the C program. The `-g` flag that you have specified tells the
+compiler to add debugging information into your executable. With that
+information, it is easier to use a debugger tool such as GDB.
+
+Run your program in the GNU Debugger (GDB).
+
+```bash
+gdb --tui ./03
+```
+
+Put a breakpoint with `b <line number>` before the `gets` function call. Run the
+`run < /srv/input.txt` command. Take a look at the function frame with the
+`info frame` command. What is the return address of the `main` function? Make
+one step in your code with the `n` command. Run the `info frame` command again.
+What is the return address of the `main` function now? Switch to the assembly
+view of your code with the `layout asm` command. Step through your assembly
+instructions one by one with the `si` command. Take a look at where you will go
+when your `main` function finishes execution. Exit from GDB with the `q`
+command.
+
+## GitHub Checkpoint #1, Part 1
 
 For the first GitHub Checkpoint, you need to prepare, commit, and push Problem
 1 for Lab 1 to your private course repository on GitHub. You have to get the
@@ -410,6 +477,10 @@ check out the commit, find your source files under the specific names the
 instructor was using during the class, build the sources, run your programs. You
 will also get zero if your programs' output format is not the same as that
 outlined in the samples.
+
+## GitHub Checkpoint #1, Part 2
+
+...
 
 ### Documentation
 
