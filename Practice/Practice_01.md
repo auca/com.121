@@ -401,39 +401,10 @@ instructions one by one with the `si` command. Take a look at where you will go
 when your `main` function finishes execution. Exit from GDB with the `q`
 command.
 
-## Problem #4: "Inline Assembly"
-
-Write a program in C that reads one uppercase Latin letter from the user through
-the `getchar` function, converts it to a lowercase letter, and prints it to the
-screen, followed by a newline `\n` sequence with a `putchar` function. Read the
-docs about `getchar` and `putchar` first with the `man` command.
-
-Compile the program to the assembly file under the name `04.x86-64.s`. Next,
-compile the program with a flag `-m32` into assembly under the name `04.x86.s`.
-Do the same, but with another compiler, `aarch64-linux-gnu-gcc`. Save the last
-assembly file under the name `04.aarch64.s`. All of these files are compiled for
-different CPU Instruction Set Architectures (ISA). The assembly for every ISA
-should also be different. Try to observe that. Now, repeat the process, but
-finish compiling into executable machine files `04.x86-64`, `04.x86`, and
-`04.aarch64`. With `objdump` and `aarch64-linux-gnu-gcc` programs, observe if
-the machine code for the `main` function is the same. Try to run the programs.
-Try to answer why it is possible or impossible to do that.
-
-Create a `04.inline-x86.c` file. Copy all the code from the `04.c` program.
-Use the [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html) x86
-assembly to do the conversion from uppercase to lowercase directly in a C file.
-In your assembly, you should put the input value to the `al` register, add a
-certain number to switch it to uppercase according to the [ASCII table](https://en.wikipedia.org/wiki/ASCII#Printable_characters),
-write the value back to the original place used by the compiler. You should
-connect the C and assembly world by specifying input constraints and outlining
-corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and step
-through your assembly instructions one by one in `gdb`. Use additional
-`-m32 -masm=intel` to compile your program.
-
-## GitHub Checkpoint #1, Part 1–4
+## GitHub Checkpoint #1, Part 1-3
 
 For the first GitHub Checkpoint, you need to prepare, commit, and push Problem
-1–4 to your private course repository on GitHub. You have to get the repository
+1–3 to your private course repository on GitHub. You have to get the repository
 from the instructor if you don't have one. Submit the last commit ID without any
 extra characters to Canvas, pointing to the snapshot where all the code is ready.
 You may create new commits and resubmit before the deadline multiple times.
@@ -513,10 +484,6 @@ Here is the list of things that you MUST present in the video for Problem 3.
 6. Run the Java program with bad input from `/srv/input.txt` and
    `/srv/input-2.txt`. Explain the results.
 7. Disconnect from the server.
-
-Here is the list of things that you MUST present in the video for Problem 4.
-
-TBD
 
 Here is the directory structure with the names of the files that you must use.
 
