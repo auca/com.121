@@ -428,7 +428,7 @@ write the value back to the original place used by the compiler. You should
 connect the C and assembly world by specifying input constraints and outlining
 corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and step
 through your assembly instructions one by one in `gdb`. Use additional
-`-static -fno-pie -no-pie` to compile your program.
+`-m32 -masm=intel` to compile your program.
 
 ## GitHub Checkpoint #1, Part 1–4
 
