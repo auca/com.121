@@ -92,7 +92,7 @@ keep different labs (experiments) in separate directories, too. Name them
 appropriately. Use the commands and programs such as `cd`, `mkdir`, `mv`,
 `touch`, `nano`, `cat`, `man`, and `ls`. 
 
-## Problem #1: "Inline Assembly"
+## Problem #1: "Portability, Inline Assembly"
 
 Write a program in C that reads one uppercase Latin letter from the user through
 the `getchar` function, converts it to a lowercase letter, and prints it to the
@@ -106,8 +106,8 @@ assembly file under the name `04.aarch64.s`. All of these files are compiled for
 different CPU Instruction Set Architectures (ISA). The assembly for every ISA
 should also be different. Try to observe that. Now, repeat the process, but
 finish compiling into executable machine files `04.x86-64`, `04.x86`, and
-`04.aarch64`. With `objdump` and `aarch64-linux-gnu-gcc` programs, observe if
-the machine code for the `main` function is the same. Try to run the programs.
+`04.aarch64`. With `objdump` and `aarch64-linux-gnu-objdump` programs, observe
+if the machine code for the `main` function is the same. Try to run the programs.
 Try to answer why it is possible or impossible to do that.
 
 Create a `04.inline-x86.c` file. Copy all the code from the `04.c` program.
@@ -115,19 +115,17 @@ Use the [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html) x86
 assembly to do the conversion from uppercase to lowercase directly in a C file.
 In your assembly, you should put the input value to the `al` register, add a
 certain number to switch it to uppercase according to the [ASCII table](https://en.wikipedia.org/wiki/ASCII#Printable_characters),
-write the value back to the original place used by the compiler. You should
+write the value to the output variable used by the compiler. You should
 connect the C and assembly world by specifying input constraints and outlining
-corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and step
-through your assembly instructions one by one in `gdb`. Use additional
-`-m32 -masm=intel` to compile your program.
-
-## Problem #2
-
-TBD
-
-## Problem #3
-
-TBD
+corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and
+step through your assembly instructions one by one in `gdb`. Use additional
+`-m32 -masm=intel` flags to compile your program. `-m32` option will tell the
+compiler to use the older x86 ISA (which we can still use on new x86-64 CPUs).
+`-masm-intel` option will allow us to use an objectively nicer syntax for x86
+assembly which is popular in various assembly books and is the official syntax
+used by Intel in their documentation files. Note that GNU programs (GCC, AS,
+GDB) prefer the AT&T syntax, which has reverse operand order and requires a lot
+of punctuation-noise in assembly sources.
 
 ## GitHub Checkpoint #2, Part 1
 
@@ -152,21 +150,47 @@ you can find the video that shows how to record, upload, share, and get the URL
 to write to `rec.txt`.
 
 Here is the list of things that you MUST present in the video for Problem 1.
-TBD
+
+1. Connect to the server.
+2. Show how to create a directory for the first problem from the terminal.
+3. Create `04.c` with all the code. Show how to compile and run it.
+4. Generate assembly files for x86-64, x86, and aarch64 ISAs. Demonstrate that
+   the assembly files are all different.
+5. Compile assembly files to executables. Demonstrate that the machine code
+   is different with `objdump` and `aarch64-linux-gnu-objdump`.
+6. Try to run the three programs. Will they all run on our x86-64 server CPU?
+   Try to find the answer to why it is possible to run ARM code on our server
+   x86-64 CPU.
+7. Create `04.inline-x86.c` with all the code. Show how to compile and run it.
+8. Demonstrate that the `04.inline-x86` executable has your code in GDB.
+9. Explain how inline assembly can be useful in large software projects in C.
+10. Disconnect from the server.
 
 Here is the directory structure with the names of the files that you must use.
 
 ```
 <Your private GitHub repository>
+├── ...
 ├── lab-02
-...
+│   └── problem-01
+│       ├── 04.aarch64.s
+│       ├── 04.c
+│       ├── 04.inline-x86.c
+│       ├── 04.x86-64.s
+│       ├── 04.x86.s
+│       └── rec.txt
+└── Readme.md
 ```
 
 Here you can find the commands that will be used to compile your code.
 
-| Problem       | Compilation Command                                   |
-| :------------ | :---------------------------------------------------- |
-| p01: 01.c...  | TBD                                                   |
+| Problem       | Compilation Commands                                                         |
+| :------------ | :--------------------------------------------------------------------------- |
+| p01: 04.c...  | `gcc -o 04 04.c` and `gcc -m32 -masm=intel -o 04.inline-x86 04.inline-x86.c` |
+
+Files `04.aarch64.s`, `04.x86-64.s`, `04.x86.s` may be graded manually. Ensure
+that you have them in the repository. `*.s` files must include assembly
+generated for different Instruction Set Architectures (x86-64, x86, aarch64).
 
 Ensure NOT to submit any binary files (object files and executables). Your grade
 will be lowered for that. You will get zero for a late submission. You will get
