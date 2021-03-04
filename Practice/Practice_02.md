@@ -127,10 +127,26 @@ used by Intel in their documentation files. Note that GNU programs (GCC, AS,
 GDB) prefer the AT&T syntax, which has reverse operand order and requires a lot
 of punctuation-noise in assembly sources.
 
-## GitHub Checkpoint #2, Part 1
+## Problem #2: "Selection Constructs"
+
+Write a program `05` to read one character from the user. Compare the character
+with ' ' and '\t' (tab) values to check that it is a whitespace symbol to set a
+boolean variable (name it appropriately). For educational purposes, use a
+multiway `if` selections constructs and nothing else. At the end of the
+program, use a two-way if construct to check the boolean value to display
+"Whitespace" or "Not a whitespace" messages to the user. Generate preprocessor
+output `05.i`, find out the "true" (pun intended) nature of boolean values in C.
+Take a look at the assembly in GDB. Step through the code to analyze how it works.
+Try to rewrite your program by only using one-way if constructs and the `goto`
+statement to jump in the code's flow to various labels similar to how the
+assembly was structured in GDB. The source file should be named `05.goto.c`
+Rewrite the code to set the boolean variable in 32-bit x86 inline assembly. Name
+the source file `05.inline.c`.
+
+## GitHub Checkpoint #2, Part 1-2
 
 For the second GitHub Checkpoint, you need to prepare, commit, and push Problem
-1 to your private course repository on GitHub. You have to get the repository
+1 and 2 to your private course repository on GitHub. You have to get the repository
 from the instructor if you don't have one. Submit the last commit ID without any
 extra characters to Canvas, pointing to the snapshot where all the code is ready.
 You may create new commits and resubmit before the deadline multiple times.
@@ -166,6 +182,10 @@ Here is the list of things that you MUST present in the video for Problem 1.
 9. Explain how inline assembly can be useful in large software projects in C.
 10. Disconnect from the server.
 
+Here is the list of things that you MUST present in the video for Problem 2.
+
+TBD
+
 Here is the directory structure with the names of the files that you must use.
 
 ```
@@ -187,6 +207,7 @@ Here you can find the commands that will be used to compile your code.
 | Problem       | Compilation Commands                                                         |
 | :------------ | :--------------------------------------------------------------------------- |
 | p01: 04.c...  | `gcc -o 04 04.c` and `gcc -m32 -masm=intel -o 04.inline-x86 04.inline-x86.c` |
+| p02: 05.c...  | TBD                                                                          |
 
 Files `04.aarch64.s`, `04.x86-64.s`, `04.x86.s` may be graded manually. Ensure
 that you have them in the repository. `*.s` files must include assembly
