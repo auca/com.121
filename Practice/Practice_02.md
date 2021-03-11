@@ -143,13 +143,35 @@ assembly was structured in GDB. The source file should be named `05.goto.c`
 Rewrite the code to set the boolean variable in 32-bit x86 inline assembly. Name
 the source file `05.inline.c`.
 
-## GitHub Checkpoint #2, Part 1-2
+## Problem #3: "Loop Constructs"
+
+Write a program `06` to read characters from the user in a `while` loop. Count
+the characters, stop on `EOF` condition, and print the total number of
+characters. Take a look at the assembly in GDB. Step through the code to analyze
+how it works. Try to rewrite your program by only using one-way if constructs
+and the `goto` statement to jump in the code's flow to various labels similar to
+how the assembly was structured in GDB for the `while` loop. The source file
+should be named `06.goto.c` Rewrite the code for the `while` loop in 32-bit x86
+inline assembly. Name the source file `06.inline.c`.
+
+Write a program `07` to print all ASCII characters from code 32 up to 126 with
+a `for` loop. Print the output in a tabular manner with 16 or 32 characters per
+every row. Represent the constant 16 or 32 in a macro definition. Take a look at
+the assembly in GDB. Step through the code to analyze how it works. Try to
+rewrite your program by only using one-way if constructs and the `goto` statement
+to jump in the code's flow to various labels similar to how the assembly was
+structured in GDB for the `while` loop. The source file should be named
+`07.goto.c` Rewrite the `for` loopin 32-bit x86 inline assembly. Name the source
+file `07.inline.c`.
+
+## GitHub Checkpoint #2, Part 1-3
 
 For the second GitHub Checkpoint, you need to prepare, commit, and push Problem
-1 and 2 to your private course repository on GitHub. You have to get the repository
-from the instructor if you don't have one. Submit the last commit ID without any
-extra characters to Canvas, pointing to the snapshot where all the code is ready.
-You may create new commits and resubmit before the deadline multiple times.
+1 through 3 to your private course repository on GitHub. You have to get the
+repository from the instructor if you don't have one. Submit the last commit ID
+without any extra characters to Canvas, pointing to the snapshot where all the
+code is ready. You may create new commits and resubmit before the deadline
+multiple times.
 
 You must also record your work with the server for the lab problems. You can use
 Zoom to record the sessions to the disk. The recordings must be concise and must
@@ -184,7 +206,35 @@ Here is the list of things that you MUST present in the video for Problem 1.
 
 Here is the list of things that you MUST present in the video for Problem 2.
 
-TBD
+1. Connect to the server.
+2. Write the program `05.c`.
+3. Generate preprocessor output `05.i` for `05.c` and find out what boolean
+   values are equal to.
+4. Take a look at the assembly in GDB. Step through the code to analyze how it
+   works.
+5. Try to rewrite your program by only using one-way if constructs and
+   the `goto` statement to jump in the code's flow to various labels similar
+   to how the assembly was structured in GDB. Name the source file `05.goto.c`.
+   Compile and test the program.
+6. Rewrite part of the code in 32-bit x86 inline assembly as it was done
+   during the claass. Name the source file `05.inline.c`. Compile and test the
+   program.
+7. Disconnect from the server.
+
+Here is the list of things that you MUST present in the video for Problem 2.
+
+1. Connect to the server.
+2. Write the programs `06.c` and `07.c`.
+3. Take a look at the assembly in GDB. Step through the code of both programs
+   to analyze how it works.
+4. Try to rewrite your programs by only using one-way if constructs and
+   the `goto` statement to jump in the code's flow to various labels similar
+   to how the assembly was structured in GDB. Name the source files `06.goto.c`
+   and `07.goto.c`. Compile and test your program.
+5. Rewrite part of the code in 32-bit x86 inline assembly as it was done
+   during the claass. Name the source files `06.inline.c` and `07.inline.c`.
+   Compile and run your program.
+6. Disconnect from the server.
 
 Here is the directory structure with the names of the files that you must use.
 
@@ -192,22 +242,38 @@ Here is the directory structure with the names of the files that you must use.
 <Your private GitHub repository>
 ├── ...
 ├── lab-02
-│   └── problem-01
-│       ├── 04.aarch64.s
-│       ├── 04.c
-│       ├── 04.inline-x86.c
-│       ├── 04.x86-64.s
-│       ├── 04.x86.s
+│   ├── problem-01
+│   │   ├── 04.aarch64.s
+│   │   ├── 04.c
+│   │   ├── 04.inline-x86.c
+│   │   ├── 04.x86-64.s
+│   │   ├── 04.x86.s
+│   │   └── rec.txt
+│   ├── problem-02
+│   │   ├── 05.c
+│   │   ├── 05.goto.c
+│   │   ├── 05.i
+│   │   ├── 05.inline.c
+│   │   └── rec.txt
+│   └── problem-03
+│       ├── 06.c
+│       ├── 06.goto.c
+│       ├── 06.inline.c
+│       ├── 07.c
+│       ├── 07.goto.c
+│       ├── 07.inline.c
+│       ├── count.txt
 │       └── rec.txt
 └── Readme.md
 ```
 
 Here you can find the commands that will be used to compile your code.
 
-| Problem       | Compilation Commands                                                         |
-| :------------ | :--------------------------------------------------------------------------- |
-| p01: 04.c...  | `gcc -o 04 04.c` and `gcc -m32 -masm=intel -o 04.inline-x86 04.inline-x86.c` |
-| p02: 05.c...  | TBD                                                                          |
+| Problem             | Compilation Commands                                                         |
+| :------------------ | :--------------------------------------------------------------------------- |
+| p01: 04.c...        | `gcc -o 04 04.c` and `gcc -m32 -masm=intel -o 04.inline-x86 04.inline-x86.c` |
+| p02: 05.c...        | Refer to class video                                                         |
+| p03: 06.c, 07.c...  | Refer to class video                                                         |
 
 Files `04.aarch64.s`, `04.x86-64.s`, `04.x86.s` may be graded manually. Ensure
 that you have them in the repository. `*.s` files must include assembly
