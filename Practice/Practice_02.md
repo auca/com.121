@@ -277,9 +277,10 @@ Here you can find the commands that will be used to compile your code.
 | p02: 05.c...        | Refer to class video                                                         |
 | p03: 06.c, 07.c...  | Refer to class video                                                         |
 
-Files `04.aarch64.s`, `04.x86-64.s`, `04.x86.s` may be graded manually. Ensure
-that you have them in the repository. `*.s` files must include assembly
+Files `04.aarch64.s`, `04.x86-64.s`, `04.x86.s`, `05.i` may be graded manually.
+Ensure that you have them in the repository. `*.s` files must include assembly
 generated for different Instruction Set Architectures (x86-64, x86, aarch64).
+`.i` file must contain preprocessor output.
 
 Ensure NOT to submit any binary files (object files and executables). Your grade
 will be lowered for that. You will get zero for a late submission. You will get
