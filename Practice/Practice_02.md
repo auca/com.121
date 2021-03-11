@@ -224,7 +224,9 @@ Here is the list of things that you MUST present in the video for Problem 2.
 Here is the list of things that you MUST present in the video for Problem 2.
 
 1. Connect to the server.
-2. Write the programs `06.c` and `07.c`.
+2. Write the programs `06.c` and `07.c`. You will have to redirect `06.c` into
+   the program `06` and redirect its output to `count.txt` file to run the first
+   program.
 3. Take a look at the assembly in GDB. Step through the code of both programs
    to analyze how it works.
 4. Try to rewrite your programs by only using one-way if constructs and
