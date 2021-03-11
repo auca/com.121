@@ -221,7 +221,7 @@ Here is the list of things that you MUST present in the video for Problem 2.
    program.
 7. Disconnect from the server.
 
-Here is the list of things that you MUST present in the video for Problem 2.
+Here is the list of things that you MUST present in the video for Problem 3.
 
 1. Connect to the server.
 2. Write the programs `06.c` and `07.c`. You will have to redirect `06.c` into
