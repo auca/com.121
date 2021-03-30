@@ -160,8 +160,8 @@ every row. Represent the constant 16 or 32 in a macro definition. Take a look at
 the assembly in GDB. Step through the code to analyze how it works. Try to
 rewrite your program by only using one-way if constructs and the `goto` statement
 to jump in the code's flow to various labels similar to how the assembly was
-structured in GDB for the `while` loop. The source file should be named
-`07.goto.c` Rewrite the `for` loopin 32-bit x86 inline assembly. Name the source
+structured in GDB for the `for` loop. The source file should be named
+`07.goto.c` Rewrite the `for` loop in 32-bit x86 inline assembly. Name the source
 file `07.inline.c`.
 
 ## GitHub Checkpoint #2, Part 1-3
