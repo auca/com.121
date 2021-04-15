@@ -1,96 +1,5 @@
-Safety Management, Practice
-===========================
-
-In this course, we study the influence of the C and C++ programming languages on
-the modern world. The reason is that C and C++ were and still are the
-irreplaceable technologies that are used to build fundamental software such as
-Operating System kernels, hardware drivers, and high-performance software such
-as browsers that we use every day. In the beginning, we study the fundamental
-structured and object-oriented programming elements of the languages. Next, we
-explore how those languages' design decisions influence the world from the point
-of safety and what extra cost people have to bear for some of the unique
-features.
-
-## Developer Tools
-
-The following tool is required to be installed to work on this course. It
-contains the Git version control system that you will use to submit your work to
-the instructor. The Git installation package also includes a virtual terminal
-Mintty, the command interpreter Bash, and an SSH client to connect and work
-with the course server.
-
-* [Git SCM](https://git-scm.com)
-
-On macOS, it is recommended to install the official command-line developer
-tools from Apple by opening the `Terminal.app` and running the following
-command.
-
-```bash
-xcode-select --install
-```
-
-The following code editor is optional. It is not required, but it can be helpful
-if you will not feel comfortable working with the command-line interface for
-long periods. You have to install the 'Remote - SSH' extension from the editor
-to use it with our remote server.
-
-* [Microsoft Visual Studio Code](https://code.visualstudio.com)
-
-This virtualization software and the OS images will allow you to set up your
-development environment on your computer to not depend on the course server. It
-is optional to set it up. You are on your own here as we will not help you
-figure out what to do to get your environment up and running. Internet is full
-of information about the process, though.
-
-* [Oracle VM VirtualBox](https://www.virtualbox.org)
-* [Ubuntu 20.04 Desktop](https://ubuntu.com/#download) with GUI or the
-  [server](https://ubuntu.com/download/server) version without it
-
-## Development Environment
-
-To setup, a development environment, open the terminal (for example, through
-`git-bash` on Windows) and run the Secure Copy (`scp`) program to download
-credentials to your machine to login to the course server. Your credentials will
-include public and private RSA cryptographic keys with a configuration file to
-point to our server with your login information. To download the keys, you will
-have to agree with any prompts by typing `yes` and pressing enter. You will also
-have to type the password when prompted. The password will be given to you
-during the class. The passwords will be disabled two weeks after the start of
-the course. Ensure to get your keys before that. You will not be able to see
-your password when you type it. It is normal not to leak it to your command-line
-history file or show it to people nearby. Continue typing the password. If the
-system does not accept your password multiple times, type it into a text editor,
-cut and paste it into the terminal window. Remember that `CTRL+C` and `CTRL+V`
-key combinations do not work in most Unix terminals. You will have to use other
-key combinations that are different for different terminals. Mintty on Windows
-uses `CTRL+INSERT` and `SHIFT+INSERT` by default. macOS terminal users are
-luckier as they can use the standard `COMMAND+C` and `COMMAND+V` key
-combinations.
-
-```bash
-# WARNING: If you have existing .ssh keys or configuration files, make a backup of them first.
-scp -r <AUCA login>@auca.space:~/.ssh ~/
-```
-
-Do not forget to replace `<AUCA login>`, including the `<` and `>` character,
-with your actual AUCA login. For example, `toksaitov_d` would be the text the
-instructor of this course would write to download the keys to access the server.
-
-From now on, you can access the server with all the necessary tools installed by
-issuing the following command in your terminal.
-
-```bash
-ssh auca
-```
-
-To terminate the connection from the remote server, you can issue the `exit`
-command.
-
-It is a good idea to create a separate directory for the course work on the
-server and give it a meaningful name (e.g., `com-121`). You should probably
-keep different labs (experiments) in separate directories, too. Name them
-appropriately. Use the commands and programs such as `cd`, `mkdir`, `mv`,
-`touch`, `nano`, `cat`, `man`, and `ls`. 
+Safety Management, Practice #2
+==============================
 
 ## Problem #1: "Portability, Inline Assembly"
 
@@ -161,8 +70,8 @@ the assembly in GDB. Step through the code to analyze how it works. Try to
 rewrite your program by only using one-way if constructs and the `goto` statement
 to jump in the code's flow to various labels similar to how the assembly was
 structured in GDB for the `for` loop. The source file should be named
-`07.goto.c` Rewrite the `for` loop in 32-bit x86 inline assembly. Name the source
-file `07.inline.c`.
+`07.goto.c`. Rewrite the `for` loop in 32-bit x86 inline assembly. Name the
+source file `07.inline.c`.
 
 ## GitHub Checkpoint #2, Part 1-3
 
@@ -216,9 +125,9 @@ Here is the list of things that you MUST present in the video for Problem 2.
    the `goto` statement to jump in the code's flow to various labels similar
    to how the assembly was structured in GDB. Name the source file `05.goto.c`.
    Compile and test the program.
-6. Rewrite part of the code in 32-bit x86 inline assembly as it was done
-   during the claass. Name the source file `05.inline.c`. Compile and test the
-   program.
+6. Rewrite part of the code in 32-bit or 64-bit x86 inline assembly as it was
+   done during the class. Name the source file `05.inline.c`. Compile and test
+   the program.
 7. Disconnect from the server.
 
 Here is the list of things that you MUST present in the video for Problem 3.
@@ -234,7 +143,7 @@ Here is the list of things that you MUST present in the video for Problem 3.
    to how the assembly was structured in GDB. Name the source files `06.goto.c`
    and `07.goto.c`. Compile and test your program.
 5. Rewrite part of the code in 32-bit x86 inline assembly as it was done
-   during the claass. Name the source files `06.inline.c` and `07.inline.c`.
+   during the class. Name the source files `06.inline.c` and `07.inline.c`.
    Compile and run your program.
 6. Disconnect from the server.
 
@@ -309,15 +218,17 @@ outlined in the samples.
 * [Intel® 64 and IA-32 Architectures Software Developer Manuals](https://software.intel.com/en-us/articles/intel-sdm)
 * [X86 Opcode Reference](http://ref.x86asm.net/index.html)
 * [X86 Instruction Reference](http://www.felixcloutier.com/x86)
+* [Intel x86 JUMP Quick Reference](http://www.unixwiz.net/techtips/x86-jumps.html)
 
 #### Tools
 
+* [Pro Git](https://git-scm.com/book/en/v2)
 * [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
-* [Pro Git](https://git-scm.com/book/en/v2)
 
 ### Books
 
 #### C
 
 * C Programming: A Modern Approach, 2nd Edition by K. N. King
+* C Programming Language, 2nd Edition by Brian W. Kernighan and Dennis M. Ritchie

@@ -1,5 +1,5 @@
-Safety Management, Practice
-===========================
+Safety Management, Practice #1
+==============================
 
 In this course, we study the influence of the C and C++ programming languages on
 the modern world. The reason is that C and C++ were and still are the
@@ -554,12 +554,13 @@ outlined in the samples.
 
 #### Tools
 
+* [Pro Git](https://git-scm.com/book/en/v2)
 * [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
-* [Pro Git](https://git-scm.com/book/en/v2)
 
 ### Books
 
 #### C
 
 * C Programming: A Modern Approach, 2nd Edition by K. N. King
+* C Programming Language, 2nd Edition by Brian W. Kernighan and Dennis M. Ritchie
