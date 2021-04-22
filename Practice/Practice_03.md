@@ -19,6 +19,15 @@ assembly was structured in R2 for the `switch` construct. The source file should
 be named `08.goto.c`. Rewrite the `switch` construct in x86-64 inline assembly
 in `08.inline.c`.
 
+## Problem #2: "Swap"
+
+Write a program `09` to swap two numbers in a function called `swap`. Write
+an incorrect version first (without the use of pointers). Check out the
+assembly in the [Godbolt Compiler Explorer](https://godbolt.org) with the
+`-O3` flag. Write a correct working version. Compare the new assembly to
+the previous one. Try adding the `-fno-inline` in Godbolt. Compare the
+assembly again.
+
 ## GitHub Checkpoint #3, Part 1
 
 For the third GitHub Checkpoint, you need to prepare, commit, and push Problem
@@ -107,6 +116,7 @@ outlined in the samples.
 * [X86 Opcode Reference](http://ref.x86asm.net/index.html)
 * [X86 Instruction Reference](http://www.felixcloutier.com/x86)
 * [Intel x86 JUMP Quick Reference](http://www.unixwiz.net/techtips/x86-jumps.html)
+* [Optimizing subroutines in assembly language](https://www.agner.org/optimize/optimizing_assembly.pdf)
 
 #### Tools
 
