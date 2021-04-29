@@ -28,6 +28,18 @@ assembly in the [Godbolt Compiler Explorer](https://godbolt.org) with the
 the previous one. Try adding the `-fno-inline` in Godbolt. Compare the
 assembly again.
 
+## Problem #3: "Array Sum"
+
+Write a program `10` to find a sum of an array of random integers. Create two
+functions named `fill_with_random` and `sum` that can prepare and sum the array.
+Create the array on the heap with the `malloc` function. Do not forget to
+release the memory with the `free` function. Check out the assembly in the
+[Godbolt Compiler Explorer](https://godbolt.org).
+
+Write a program `11` to find a sum of all the numbers passed as command-line
+arguments to the program. Convert the strings to integers with the `strtol`
+function. Check out the assembly in the [Godbolt Compiler Explorer](https://godbolt.org).
+
 ## GitHub Checkpoint #3, Part 1
 
 For the third GitHub Checkpoint, you need to prepare, commit, and push Problem
