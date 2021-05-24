@@ -34,11 +34,11 @@ Write a program `10` to find a sum of an array of random integers. Create two
 functions named `fill_with_random` and `sum` that can prepare and sum the array.
 Create the array on the heap with the `malloc` function. Do not forget to
 release the memory with the `free` function. Check out the assembly in the
-[Godbolt Compiler Explorer](https://godbolt.org).
+Godbolt Compiler Explorer.
 
 Write a program `11` to find a sum of all the numbers passed as command-line
 arguments to the program. Convert the strings to integers with the `strtol`
-function. Check out the assembly in the [Godbolt Compiler Explorer](https://godbolt.org).
+function. Check out the assembly in the Godbolt Compiler Explorer.
 
 ## Problem #4: "Safer World of C++"
 
@@ -57,17 +57,16 @@ counterparts.
 Follow the instructor to create a simple `rational` class in C++ in files
 `rational.h` and `rational.cpp`. Write a simple test program `14.cpp` to sum any
 two arbitrary numbers and print the result. Finish overloading the `-=`, `-`,
-`*=`, `*`, `/=`, `/` operators. Put your code into the [Godbolt Compiler
-Explorer](https://godbolt.org). Take a look at the assembly generated with the
-`-O1` optimization flag by the x86-64 GCC 11.1 compiler. Find the call to the
-constructor of the first number (you will see something like `call
-rational::rational(int, int)...` in the assembly output for the `main`
-function). Find how the numerator and denominator are passed as a second and
-third arguments through registers `esi`/`rsi` and `edx`/`rdx`. Something else is
-passed as a first argument to the constructor through the register `edi`/`rdi`
-that we were not sending in our high-level code. Find out what it is. You can
-use books and the Internet in your research. Provide the answer at the end of
-your video.
+`*=`, `*`, `/=`, `/` operators. Put your code into the Godbolt Compiler
+Explorer. Take a look at the assembly generated with the `-O1` optimization flag
+by the x86-64 GCC 11.1 compiler. Find the call to the constructor of the first
+number (you will see something like `call rational::rational(int, int)...` in
+the assembly output for the `main` function). Find how the numerator and
+denominator are passed as a second and third arguments through registers
+`esi`/`rsi` and `edx`/`rdx`. Something else is passed as a first argument to the
+constructor through the register `edi`/`rdi` that we were not sending in our
+high-level code. Find out what it is. You can use books and the Internet in your
+research. Provide the answer at the end of your video.
 
 ## GitHub Checkpoint #3, Part 1-5
 
@@ -114,8 +113,8 @@ Here is the list of things that you MUST present in the video for Problem 2.
 1. Connect to the server.
 2. Write the C program `09.c` to swap two numbers in a function called `swap`.
    Write an incorrect version first (without the use of pointers). Check out the
-   assembly in the [Godbolt Compiler Explorer](https://godbolt.org) with the
-   `-O3` flag. Explain the the reason the program is not correct.
+   assembly in the Godbolt Compiler Explorer with the `-O3` flag. Explain the
+   the reason the program is not correct.
 3. Write a correct working version by using pointers. Compare the new assembly
    to the previous one in Godbolt CE. Try adding the `-fno-inline` in Godbolt.
    Compare the assembly again. Explain the results.
@@ -127,7 +126,7 @@ Here is the list of things that you MUST present in the video for Problem 3.
 2. Write the C program `10.c` to find a sum of an array of random integers.
    Ensure to create the array on the heap.
 3. Explain the difference between the heap and the stack.
-4. Check out the assembly in the [Godbolt Compiler Explorer](https://godbolt.org).
+4. Check out the assembly in the Godbolt Compiler Explorer.
 5. Explain what information is necessary to access an element of an array in the
    low-level world. Point out in what lines of assembly our array is being used.
 6. Write the C program `11.c` to find a sum of all the numbers passed as
@@ -155,10 +154,9 @@ Here is the list of things that you MUST present in the video for Problem 5.
    two arbitrary numbers and print the result. Finish overloading the `-=`, `-`,
    `*=`, `*`, `/=`, `/` operators. Compile and run your program. Ensure that
    it produces a correct result.
-3. Put your code into the [Godbolt Compiler Explorer](https://godbolt.org). Take
-   a look at the assembly generated with the `-O1` optimization flag by the
-   x86-64 GCC 11.1 compiler. Find the answer to the question specified in the
-   description of Problem #5.
+3. Put your code into the Godbolt Compiler Explorer. Take a look at the assembly
+   generated with the `-O1` optimization flag by the x86-64 GCC 11.1 compiler.
+   Find the answer to the question specified in the description of Problem #5.
 4. Disconnect from the server.
 
 Here is the directory structure with the names of the files that you must use.
@@ -236,8 +234,9 @@ outlined in the samples.
 * [Pro Git](https://git-scm.com/book/en/v2)
 * [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
-* [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
+* [GCC Inline Assembly](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
 * [The Official Radare2 Book](https://book.rada.re)
+* [Godbolt Compiler Explorer](https://godbolt.org)
 
 ### Books
 

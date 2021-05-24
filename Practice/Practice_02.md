@@ -226,7 +226,7 @@ outlined in the samples.
 * [Pro Git](https://git-scm.com/book/en/v2)
 * [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
-* [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
+* [GCC Inline Assembly](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
 
 ### Books
 
