@@ -8,22 +8,23 @@ the `getchar` function, converts it to a lowercase letter, and prints it to the
 screen, followed by a newline `\n` sequence with a `putchar` function. Read the
 docs about `getchar` and `putchar` first with the `man` command.
 
-Compile the program to the assembly file under the name `04.x86-64.s`. Next,
-compile the program with a flag `-m32` into assembly under the name `04.x86.s`.
-Do the same, but with another compiler, `aarch64-linux-gnu-gcc`. Save the last
-assembly file under the name `04.aarch64.s`. All of these files are compiled for
+Compile the source file into the assembly file `04.x86-64.s`. Next, compile the
+same sources with a flag `-m32` into assembly under the name `04.x86.s`. Do the
+same, but with another compiler, `aarch64-linux-gnu-gcc`. Save the last assembly
+file under the name `04.aarch64.s`. All of these files are compiled for
 different CPU Instruction Set Architectures (ISA). The assembly for every ISA
-should also be different. Try to observe that. Now, repeat the process, but
-finish compiling into executable machine files `04.x86-64`, `04.x86`, and
-`04.aarch64`. With `objdump` and `aarch64-linux-gnu-objdump` programs, observe
-if the machine code for the `main` function is the same. Try to run the programs.
-Try to answer why it is possible or impossible to do that.
+should also be different. Try to observe that. Finish compiling the generated
+files into executable machine code under the names `04.x86-64`, `04.x86`, and
+`04.aarch64`. Check the files with the `objdump` and `aarch64-linux-gnu-objdump`
+programs. Observe if the machine code for the `main` function is the same. Try
+to run the programs. Try to answer why it is possible or impossible to do that.
 
-Create a `04.inline-x86.c` file. Copy all the code from the `04.c` program.
+Create the `04.inline-x86.c` file. Copy all the code from the `04.c` program.
 Use the [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html) x86
 assembly to do the conversion from uppercase to lowercase directly in a C file.
 In your assembly, you should put the input value to the `al` register, add a
-certain number to switch it to uppercase according to the [ASCII table](https://en.wikipedia.org/wiki/ASCII#Printable_characters),
+certain number to switch it to uppercase according to the
+[ASCII table](https://en.wikipedia.org/wiki/ASCII#Printable_characters),
 write the value to the output variable used by the compiler. You should
 connect the C and assembly world by specifying input constraints and outlining
 corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and
@@ -45,12 +46,12 @@ multiway `if` selections constructs and nothing else. At the end of the
 program, use a two-way if construct to check the boolean value to display
 "Whitespace" or "Not a whitespace" messages to the user. Generate preprocessor
 output `05.i`, find out the "true" (pun intended) nature of boolean values in C.
-Take a look at the assembly in GDB. Step through the code to analyze how it works.
-Try to rewrite your program by only using one-way if constructs and the `goto`
-statement to jump in the code's flow to various labels similar to how the
-assembly was structured in GDB. The source file should be named `05.goto.c`
-Rewrite the code to set the boolean variable in 32-bit x86 inline assembly. Name
-the source file `05.inline.c`.
+Take a look at the assembly in GDB. Step through the code to analyze how it
+works. Try to rewrite your program by only using one-way if constructs and the
+`goto` statement to jump in the code's flow to various labels similar to how the
+assembly was structured in GDB. The source file should be named `05.goto.c`.
+Rewrite the code to set the boolean variable in 32- or 64-bit x86 inline
+assembly. Name the source file `05.inline.c`.
 
 ## Problem #3: "Loop Constructs"
 
@@ -60,17 +61,17 @@ characters. Take a look at the assembly in GDB. Step through the code to analyze
 how it works. Try to rewrite your program by only using one-way if constructs
 and the `goto` statement to jump in the code's flow to various labels similar to
 how the assembly was structured in GDB for the `while` loop. The source file
-should be named `06.goto.c` Rewrite the code for the `while` loop in 32-bit x86
-inline assembly. Name the source file `06.inline.c`.
+should be named `06.goto.c` Rewrite the code for the `while` loop into
+32- or 64-bit x86 inline assembly. Name the source file `06.inline.c`.
 
-Write a program `07` to print all ASCII characters from code 32 up to 126 with
-a `for` loop. Print the output in a tabular manner with 16 or 32 characters per
-every row. Represent the constant 16 or 32 in a macro definition. Take a look at
-the assembly in GDB. Step through the code to analyze how it works. Try to
-rewrite your program by only using one-way if constructs and the `goto` statement
-to jump in the code's flow to various labels similar to how the assembly was
-structured in GDB for the `for` loop. The source file should be named
-`07.goto.c`. Rewrite the `for` loop in 32-bit x86 inline assembly. Name the
+Write a program `07` to print all ASCII characters from code 33 up to 126 with a
+`for` loop. Print the output in a tabular manner with 16 characters per row.
+Represent the constant 16 as a macro definition. Take a look at the assembly in
+GDB. Step through the code to analyze how it works. Try to rewrite your program
+by only using one-way if constructs and the `goto` statement to jump in the
+code's flow to various labels similar to how the assembly was structured in GDB
+for the `for` loop. The source file should be named `07.goto.c`. Rewrite the
+`for` loop in the C code into 32- or 64-bit x86 GCC inline assembly. Name the
 source file `07.inline.c`.
 
 ## GitHub Checkpoint #2, Part 1-3
@@ -137,7 +138,7 @@ Here is the list of things that you MUST present in the video for Problem 3.
    the program `06` and redirect its output to `count.txt` file to run the first
    program.
 3. Take a look at the assembly in GDB. Step through the code of both programs
-   to analyze how it works.
+   to analyze how they work.
 4. Try to rewrite your programs by only using one-way if constructs and
    the `goto` statement to jump in the code's flow to various labels similar
    to how the assembly was structured in GDB. Name the source files `06.goto.c`
@@ -225,6 +226,7 @@ outlined in the samples.
 * [Pro Git](https://git-scm.com/book/en/v2)
 * [GAS Syntax](https://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax)
 * [GDB Quick Reference](https://users.ece.utexas.edu/~adnan/gdb-refcard.pdf)
+* [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html)
 
 ### Books
 
