@@ -197,7 +197,7 @@ Here you can find the commands that will be used to compile your code.
 | p02: 09.c           | `gcc -O3 -fno-inline -o 09 09.c`                                                                                        |
 | p03: 10.c, 11.c     | `gcc -o 10 10.c` and `gcc -o 11 11.c`                                                                                   |
 | p04: 12.cpp, 13.cpp | `g++ -o 12 12.cpp` and `g++ -o 13 13.cpp`                                                                               |
-| p05: 14.cpp...      | `g++ -c -o rational.o rational.cpp && g++ -c -o 14.o 14.cpp && g++ -o 14 rational.o 14.o`                               |
+| p05: 14.cpp...      | `g++ -std=c++17 -c -o rational.o rational.cpp && g++ -std=c++17 -c -o 14.o 14.cpp && g++ -std=c++17 -o 14 rational.o 14.o`                               |
 
 Ensure NOT to submit any binary files (object files and executables). Your grade
 will be lowered for that. You will get zero for a late submission. You will get
