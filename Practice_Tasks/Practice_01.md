@@ -1,5 +1,5 @@
-Safety Management, Practice #1
-==============================
+Safety in Programming Languages, Practice #1
+============================================
 
 In this course, we study the influence of the C and C++ programming languages on
 the modern world. The reason is that C and C++ were and still are the
@@ -490,23 +490,23 @@ Here is the directory structure with the names of the files that you must use.
 ```
 <Your private GitHub repository>
 ├── lab-01
-│   ├── problem-01
-│   │   ├── 01.c
-│   │   ├── 01.i
-│   │   ├── 01.O3.s
-│   │   ├── 01.s
-│   │   └── rec.txt
-│   ├── problem-02
-│   │   ├── 02.c
-│   │   ├── 02.i
-│   │   ├── Makefile
-│   │   ├── rec.txt
-│   │   ├── utilities.c
-│   │   └── utilities.h
-│   └── problem-03
-│       ├── 03.c
-│       ├── Greeter.java
-│       └── rec.txt
+│   ├── problem-01
+│   │   ├── 01.c
+│   │   ├── 01.i
+│   │   ├── 01.O3.s
+│   │   ├── 01.s
+│   │   └── rec.txt
+│   ├── problem-02
+│   │   ├── 02.c
+│   │   ├── 02.i
+│   │   ├── Makefile
+│   │   ├── rec.txt
+│   │   ├── utilities.c
+│   │   └── utilities.h
+│   └── problem-03
+│       ├── 03.c
+│       ├── Greeter.java
+│       └── rec.txt
 └── Readme.md
 ```
 
