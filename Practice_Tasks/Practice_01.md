@@ -16,14 +16,13 @@ features.
 The following tool is required to be installed to work on this course. It
 contains the Git version control system that you will use to submit your work to
 the instructor. The Git installation package also includes a virtual terminal
-Mintty, the command interpreter Bash, and an SSH client to connect and work
-with the course server.
+Mintty, the command interpreter Bash, and an SSH client to connect and work with
+the course server.
 
 * [Git SCM](https://git-scm.com)
 
-On macOS, it is recommended to install the official command-line developer
-tools from Apple by opening the `Terminal.app` and running the following
-command.
+On macOS, it is recommended to install the official command-line developer tools
+from Apple by opening the `Terminal.app` and running the following command.
 
 ```bash
 xcode-select --install
@@ -87,8 +86,8 @@ To terminate the connection from the remote server, you can issue the `exit`
 command.
 
 It is a good idea to create a separate directory for the course work on the
-server and give it a meaningful name (e.g., `com-121`). You should probably
-keep different labs (experiments) in separate directories, too. Name them
+server and give it a meaningful name (e.g., `com-121`). You should probably keep
+different labs (experiments) in separate directories, too. Name them
 appropriately. Use the commands and programs such as `cd`, `mkdir`, `mv`,
 `touch`, `nano`, `cat`, `man`, and `ls`. 
 
@@ -154,9 +153,9 @@ hello, world
 Use the optimization facilities of your compiler to generate a more efficient
 (performant) assembly code. You can try any flags such as `-O1`, `-O2`, `-O3`,
 `-Os`, or `-Ofast`. The flags such as `-O1-3` enable a different number of
-optimization techniques. The `-Os` flag tells GCC to make the program binary
-as small as possible. The `-Ofast` is `-O3` with some extra optimizations that
-may lead to fast but not accurate math calculations with floating-point numbers.
+optimization techniques. The `-Os` flag tells GCC to make the program binary as
+small as possible. The `-Ofast` is `-O3` with some extra optimizations that may
+lead to fast but not accurate math calculations with floating-point numbers.
 GCC has more flags to enable specific optimizations. Most of them are new and
 experimental or may not work well for all programs.
 
@@ -177,10 +176,10 @@ vimdiff 01.s 01.O3.s
 
 Finally, let's take a look at machine instructions that the CPU uses to run the
 program. Run a disassembly program `objdump` on your compiled binary. It will
-try to reconstruct the assembly instructions from the machine code and print
-the machine code alongside the assembly. Send (pipe) the output of `objdump`
-into the pager `less` to make it possible to scroll through and search for the
-main entry point with the `/main` command in the terminal.
+try to reconstruct the assembly instructions from the machine code and print the
+machine code alongside the assembly. Send (pipe) the output of `objdump` into
+the pager `less` to make it possible to scroll through and search for the main
+entry point with the `/main` command in the terminal.
 
 ```
 objdump -D 01 | less
@@ -200,8 +199,8 @@ Java. Theorize, would all those programs consume much more or less electricity?
 ## Problem #2: "A Message in a Rectangle"
 
 Create a program that prints the "hello, world" greeting surrounded by the
-asterisk symbols. To print a line of asterisks, write a separate function
-called `void print_decor_line(void)`. Note the naming compared to Java.
+asterisk symbols. To print a line of asterisks, write a separate function called
+`void print_decor_line(void)`. Note the naming compared to Java.
 
 Perform several experiments. Every time you have to recompile the program, try
 running it if the compilation was successful.
@@ -220,12 +219,12 @@ running it if the compilation was successful.
 
 For large source files, the compilation can take a lot of time. For example, the
 Linux kernel takes on average one hour to be recompiled from scratch on a modern
-personal computer. In large projects, to allow developers to recompile only those
-modified files, programs in C are split into multiple `.c` files, preprocessed
-and compiled separately, and then combined with a linker program. Even for your
-current application that consists of only one file, the linker is called to
-combine your object file with the system libraries' machine code and the C
-runtime (that prepares your program's environment to run).
+personal computer. In large projects, to allow developers to recompile only
+those modified files, programs in C are split into multiple `.c` files,
+preprocessed and compiled separately, and then combined with a linker program.
+Even for your current application that consists of only one file, the linker is
+called to combine your object file with the system libraries' machine code and
+the C runtime (that prepares your program's environment to run).
 
 Even though it is not necessary for such a small program to do it, let us split
 our program into two `.c` files, where the main file references entities from
@@ -247,8 +246,8 @@ gcc -o 02 02.o utilities.o # Step 3: linking object files, system libraries, and
 ```
 
 Try to change the function in the `utilities.c` file to generate. Figure out
-what steps outlined in the comments above (`Step 1:...`, `Step 2:...`, `Step 3...`)
-do you only have to repeat to rebuild your program?
+what steps outlined in the comments above (`Step 1:...`, `Step 2:...`,
+`Step 3...`) do you only have to repeat to rebuild your program?
 
 ```bash
 # TODO: figure out which steps above are only required to be repeated to recompile the program
@@ -294,8 +293,8 @@ can try replacing `gcc` with `clang`. Clang is another popular C compiler that
 we have installed on our server.
 
 The `CFLAGS` variable allows you to specify compiler flags. We have provided the
-flag to turn optimizations on as an example. You can add more compiler flags here
-by separating them with a whitespace character.
+flag to turn optimizations on as an example. You can add more compiler flags
+here by separating them with a whitespace character.
 
 In some of our programs, we will have to tell the compiler to use additional
 system libraries that are not linked by default. For example, to use the `Math`
@@ -421,18 +420,19 @@ Here you can find all the works of FULLNAME for the COM-121 course.
 Replace `FULLNAME` with your real name.
 
 You must also record your work with the server for the lab problems. You can use
-Zoom to record the sessions to the disk. The recordings must be concise and must
-have your commentaries explaining the most important steps of the process. Do
-the operations that the instructor was doing. You may pretend that you are an
-instructor now, and you are trying to create a series of educational videos. You
-have to upload them to the AUCA Google Drive folder (create one, name it
-appropriately) and share them with the instructor (you can find his E-mail in
-the course syllabus). DO NOT remove the videos until the end of the course. If
-it is not possible to download or watch the video, you will get zero for the
-work. Recording URLs (and nothing else) must be stored in `rec.txt` files for
-every problem. [Here](https://drive.google.com/file/d/1Q_jFnOCQbJGYS1Ky8rfQ-F389PVioOYV)
-you can find the video that shows how to record, upload, share, and get the URL
-to write to `rec.txt`.
+[Zoom](https://zoom.us) or [OBS](https://obsproject.com) to record the sessions
+to the disk. The recordings must be concise and must have your commentaries
+explaining the most important steps of the process. Do the operations that the
+instructor was doing. You may pretend that you are an instructor now, and you
+are trying to create a series of educational videos. You have to upload them to
+the AUCA Google Drive folder (create one, name it appropriately) and share them
+with the instructor (you can find his E-mail in the course syllabus). DO NOT
+remove the videos until the end of the course. If it is not possible to download
+or watch the video, you will get zero for the work. Recording URLs (and nothing
+else) must be stored in `rec.txt` files for every problem.
+[Here](https://drive.google.com/file/d/1Q_jFnOCQbJGYS1Ky8rfQ-F389PVioOYV) you
+can find the video that shows how to record, upload, share, and get the URL to
+write to `rec.txt`.
 
 Here is the list of things that you MUST present in the video for Problem 1.
 
