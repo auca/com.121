@@ -478,13 +478,14 @@ Here is the list of things that you MUST present in the video for Problem 3.
 2. Show how to create a directory for the third problem from the terminal.
 3. Create `03.c` with all the code. Show how to compile and run it with good
    input (type your full name).
-4. Run the program with bad input from `/srv/input.txt` and `/srv/input-2.txt`.
-   Demonstrate what will happen. Explain the result.
+4. Run the program with bad input from `/srv/input.txt`. Demonstrate what will
+   happen. Explain the result.
 5. Create a similar Java program under the name `Greeter.java`. Run it with
    good input by typing your full name.
-6. Run the Java program with bad input from `/srv/input.txt` and
-   `/srv/input-2.txt`. Explain the results.
-7. Disconnect from the server.
+6. Run the Java program with bad input from `/srv/input.txt`. Explain the
+   results.
+7. Run the `03` C program in GDB. Demonstrate the basic debugging commands.
+8. Disconnect from the server.
 
 Here is the directory structure with the names of the files that you must use.
 
