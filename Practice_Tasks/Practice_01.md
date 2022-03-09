@@ -88,8 +88,8 @@ command.
 It is a good idea to create a separate directory for the course work on the
 server and give it a meaningful name (e.g., `com-121`). You should probably keep
 different labs (experiments) in separate directories, too. Name them
-appropriately. Use the commands and programs such as `cd`, `mkdir`, `mv`,
-`touch`, `nano`, `cat`, `man`, and `ls`. 
+appropriately. Use the commands and programs such as `cd`, `ls`, `mkdir`,
+`nano`, `cat`, `less`, `man`, `touch`, and `rm`.
 
 ## Problem #1: "Hello, World"
 
@@ -485,7 +485,11 @@ Here is the list of things that you MUST present in the video for Problem 3.
 6. Run the Java program with bad input from `/srv/input.txt`. Explain the
    results.
 7. Run the `03` C program in GDB. Demonstrate the basic debugging commands.
-8. Disconnect from the server.
+8. Fix the `03.c` code to make it secure to the content of the `/srv/input.txt`
+   file. You will have to do a bit of research on your own. You can use Internet
+   resources to find the name of the function to make your code better. Links
+   and Books below may also be useful.
+9. Disconnect from the server.
 
 Here is the directory structure with the names of the files that you must use.
 
@@ -536,11 +540,16 @@ outlined in the samples.
 
 ### Documentation
 
-    man make
+    man nano
     man gcc
-    man as
-    man gdb
+    man vimdiff
     man objdump
+    man make
+    man gdb
+
+    man 3 puts
+    man 3 gets
+    man 3 printf
 
 ### Links
 
