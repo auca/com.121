@@ -234,4 +234,3 @@ outlined in the samples.
 
 * C Programming: A Modern Approach, 2nd Edition by K. N. King
 * C Programming Language, 2nd Edition by Brian W. Kernighan and Dennis M. Ritchie
-* 
