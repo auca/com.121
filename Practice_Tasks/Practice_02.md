@@ -31,7 +31,7 @@ corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and
 step through your assembly instructions one by one in `gdb`. Use additional
 `-m32 -masm=intel` flags to compile your program. `-m32` option will tell the
 compiler to use the older x86 ISA (which we can still use on new x86-64 CPUs).
-`-masm-intel` option will allow us to use an objectively nicer syntax for x86
+`-masm=intel` option will allow us to use an objectively nicer syntax for x86
 assembly which is popular in various assembly books and is the official syntax
 used by Intel in their documentation files. Note that GNU programs (GCC, AS,
 GDB) prefer the AT&T syntax, which has reverse operand order and requires a lot
