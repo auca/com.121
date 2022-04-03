@@ -19,7 +19,7 @@ files into executable machine code under the names `04.x86-64`, `04.x86`, and
 programs. Observe if the machine code for the `main` function is the same. Try
 to run the programs. Try to answer why it is possible or impossible to do that.
 
-Create the `04.inline-x86.c` file. Copy all the code from the `04.c` program.
+Create the `04.inline-x86-64.c` file. Copy all the code from the `04.c` program.
 Use the [inline GCC](https://gcc.gnu.org/onlinedocs/gcc/Extended-Asm.html) x86
 assembly to do the conversion from uppercase to lowercase directly in a C file.
 In your assembly, you should put the input value to the `al` register, add a
@@ -27,15 +27,8 @@ certain number to switch it to uppercase according to the
 [ASCII table](https://en.wikipedia.org/wiki/ASCII#Printable_characters),
 write the value to the output variable used by the compiler. You should
 connect the C and assembly world by specifying input constraints and outlining
-corrupted (clobbered) registers (in our case, just `eax`). Compile, run, and
-step through your assembly instructions one by one in `gdb`. Use additional
-`-m32 -masm=intel` flags to compile your program. `-m32` option will tell the
-compiler to use the older x86 ISA (which we can still use on new x86-64 CPUs).
-`-masm-intel` option will allow us to use an objectively nicer syntax for x86
-assembly which is popular in various assembly books and is the official syntax
-used by Intel in their documentation files. Note that GNU programs (GCC, AS,
-GDB) prefer the AT&T syntax, which has reverse operand order and requires a lot
-of punctuation-noise in assembly sources.
+corrupted (clobbered) registers (in our case, just `al`). Compile, run, and
+step through your assembly instructions one by one in `gdb`.
 
 ## Problem #2: "Selection Constructs"
 
@@ -61,8 +54,8 @@ characters. Take a look at the assembly in GDB. Step through the code to analyze
 how it works. Try to rewrite your program by only using one-way if constructs
 and the `goto` statement to jump in the code's flow to various labels similar to
 how the assembly was structured in GDB for the `while` loop. The source file
-should be named `06.goto.c` Rewrite the code for the `while` loop into
-32- or 64-bit x86 inline assembly. Name the source file `06.inline.c`.
+should be named `06.goto.c` Rewrite the code for the `while` loop into the
+64-bit x86 inline assembly. Name the source file `06.inline.c`.
 
 Write a program `07` to print all ASCII characters from code 33 up to 126 with a
 `for` loop. Print the output in a tabular manner with 16 characters per row.
@@ -71,31 +64,32 @@ GDB. Step through the code to analyze how it works. Try to rewrite your program
 by only using one-way if constructs and the `goto` statement to jump in the
 code's flow to various labels similar to how the assembly was structured in GDB
 for the `for` loop. The source file should be named `07.goto.c`. Rewrite the
-`for` loop in the C code into 32- or 64-bit x86 GCC inline assembly. Name the
+`for` loop in the C code into the 64-bit x86 GCC inline assembly. Name the
 source file `07.inline.c`.
 
 ## GitHub Checkpoint #2, Part 1-3
 
-For the second GitHub Checkpoint, you need to prepare, commit, and push Problem
-1 through 3 to your private course repository on GitHub. You have to get the
-repository from the instructor if you don't have one. Submit the last commit ID
-without any extra characters to Canvas, pointing to the snapshot where all the
-code is ready. You may create new commits and resubmit before the deadline
+For the second set of GitHub Checkpoints, you need to prepare, commit, and push
+Problem 1 through 3 to your private course repository on GitHub. You have to get
+the repository from the instructor if you don't have one. Submit the last commit
+ID without any extra characters to Canvas, pointing to the snapshot where all
+the code is ready. You may create new commits and resubmit before the deadline
 multiple times.
 
 You must also record your work with the server for the lab problems. You can use
-Zoom to record the sessions to the disk. The recordings must be concise and must
-have your commentaries explaining the most important steps of the process. Do
-the operations that the instructor was doing. You may pretend that you are an
-instructor now, and you are trying to create a series of educational videos. You
-have to upload them to the AUCA Google Drive folder (create one, name it
-appropriately) and share them with the instructor (you can find his E-mail in
-the course syllabus). DO NOT remove the videos until the end of the course. If
-it is not possible to download or watch the video, you will get zero for the
-work. Recording URLs (and nothing else) must be stored in `rec.txt` files for
-every problem. [Here](https://drive.google.com/file/d/1Q_jFnOCQbJGYS1Ky8rfQ-F389PVioOYV)
-you can find the video that shows how to record, upload, share, and get the URL
-to write to `rec.txt`.
+[Zoom](https://zoom.us) or [OBS](https://obsproject.com) to record the sessions
+to the disk. The recordings must be concise and must have your commentaries
+explaining the most important steps of the process. Do the operations that the
+instructor was doing. You may pretend that you are an instructor now, and you
+are trying to create a series of educational videos. You have to upload them to
+the AUCA Google Drive folder (create one, name it appropriately) and share them
+with the instructor (you can find his E-mail in the course syllabus). DO NOT
+remove the videos until the end of the course. If it is not possible to download
+or watch the video, you will get zero for the work. Recording URLs (and nothing
+else) must be stored in `rec.txt` files for every problem.
+[Here](https://drive.google.com/file/d/1Q_jFnOCQbJGYS1Ky8rfQ-F389PVioOYV) you
+can find the video that shows how to record, upload, share, and get the URL to
+write to `rec.txt`.
 
 Here is the list of things that you MUST present in the video for Problem 1.
 
@@ -108,9 +102,9 @@ Here is the list of things that you MUST present in the video for Problem 1.
    is different with `objdump` and `aarch64-linux-gnu-objdump`.
 6. Try to run the three programs. Will they all run on our x86-64 server CPU?
    Try to find the answer to why it is possible to run ARM code on our server
-   x86-64 CPU.
-7. Create `04.inline-x86.c` with all the code. Show how to compile and run it.
-8. Demonstrate that the `04.inline-x86` executable has your code in GDB.
+   with the x86-64 CPU.
+7. Create `04.inline-x86-64.c` with all the code. Show how to compile and run it.
+8. Demonstrate that the `04.inline-x86-64` executable has your code in GDB.
 9. Explain how inline assembly can be useful in large software projects in C.
 10. Disconnect from the server.
 
@@ -125,10 +119,10 @@ Here is the list of things that you MUST present in the video for Problem 2.
 5. Try to rewrite your program by only using one-way if constructs and
    the `goto` statement to jump in the code's flow to various labels similar
    to how the assembly was structured in GDB. Name the source file `05.goto.c`.
-   Compile and test the program.
-6. Rewrite part of the code in 32-bit or 64-bit x86 inline assembly as it was
-   done during the class. Name the source file `05.inline.c`. Compile and test
-   the program.
+   Compile and test the program. You should only rewrite the first multi-way
+   if construct.
+6. Rewrite part of the code in 64-bit x86 inline assembly as it was done during
+   the class. Name the source file `05.inline.c`. Compile and test the program.
 7. Disconnect from the server.
 
 Here is the list of things that you MUST present in the video for Problem 3.
@@ -143,7 +137,7 @@ Here is the list of things that you MUST present in the video for Problem 3.
    the `goto` statement to jump in the code's flow to various labels similar
    to how the assembly was structured in GDB. Name the source files `06.goto.c`
    and `07.goto.c`. Compile and test your program.
-5. Rewrite part of the code in 32-bit x86 inline assembly as it was done
+5. Rewrite part of the code in 64-bit x86 inline assembly as it was done
    during the class. Name the source files `06.inline.c` and `07.inline.c`.
    Compile and run your program.
 6. Disconnect from the server.
@@ -157,7 +151,7 @@ Here is the directory structure with the names of the files that you must use.
 │   ├── problem-01
 │   │   ├── 04.aarch64.s
 │   │   ├── 04.c
-│   │   ├── 04.inline-x86.c
+│   │   ├── 04.inline-x86-64.c
 │   │   ├── 04.x86-64.s
 │   │   ├── 04.x86.s
 │   │   └── rec.txt
@@ -183,7 +177,7 @@ Here you can find the commands that will be used to compile your code.
 
 | Problem             | Compilation Commands                                                         |
 | :------------------ | :--------------------------------------------------------------------------- |
-| p01: 04.c...        | `gcc -o 04 04.c` and `gcc -m32 -masm=intel -o 04.inline-x86 04.inline-x86.c` |
+| p01: 04.c...        | `gcc -o 04 04.c` and `gcc -o 04.inline-x86-64 04.inline-x86-64.c`            |
 | p02: 05.c...        | Refer to class video                                                         |
 | p03: 06.c, 07.c...  | Refer to class video                                                         |
 
@@ -202,11 +196,17 @@ outlined in the samples.
 
 ### Documentation
 
-    man make
+    man nano
+    man vim
+    vimtutor
     man gcc
-    man as
-    man gdb
+    man vimdiff
     man objdump
+    man make
+    man gdb
+
+    man 3 getchar
+    man 3 putchar
 
 ### Links
 
