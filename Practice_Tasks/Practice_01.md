@@ -45,6 +45,21 @@ of information about the process, though.
 * [Ubuntu 20.04 Desktop](https://ubuntu.com/#download) with GUI or the
   [server](https://ubuntu.com/download/server) version without it
 
+Here is the list of commands to prepare your local Ubuntu installation for work:
+
+```bash
+apt update && apt upgrade
+apt install vim git tmux
+apt install man-db manpages-posix manpages-dev
+apt install build-essential g++ gcc-multilib g++multilib gcc-aarch64-linux-gnu libc-dev-arm64-cross
+apt install openjdk-17-jdk-headless
+apt install gdb gdb-multiarch
+apt install cmake radare2
+apt install linux-tools-common linux-tools-generic linux-tools-`uname -r`
+apt install qemu qemu-kvm qemu-system qemu-user qemu-user-binfmt
+echo 'export QEMU_LD_PREFIX="/usr/aarch64-linux-gnu/"' | tee --append /etc/environment
+```
+
 ## Development Environment
 
 To setup, a development environment, open the terminal (for example, through
